@@ -45,6 +45,34 @@ EMPRESA (1) ────────────── (N) EMPLEADO
 
 ---
 
+## Cambios realizados al proyecto
+
+### Entidad `Empresa.java`
+- Se eliminó el campo `descripcion` que no correspondía al enunciado
+- Se agregaron los campos `nit` y `ciudad` requeridos por el modelo
+- Se actualizaron constructor, getters y setters
+
+### Entidad `Empleado.java`
+- Se renombró `apellido` → `cargo`
+- Se renombró `email` → `correo`
+- Se eliminó el campo `sector` que no pertenece a esta entidad
+- Se actualizaron constructor, getters y setters
+- Se conservó la relación `@ManyToOne` con `@JoinColumn(name = "empresa_id")`
+
+### `EmpleadoService.java` — eliminado
+- El enunciado especifica que no se debe crear servicio CRUD para la clase hija `Empleado`
+
+### `EmpleadoController.java` — eliminado
+- El enunciado especifica que no se debe crear controlador CRUD para la clase hija `Empleado`
+
+### `application.properties`
+- Se cambió `ddl-auto` de `create-drop` a `create` para que los datos persistan mientras la aplicación está corriendo
+
+### `EmpresaController.java`
+- Se agregó `@CrossOrigin(origins = "http://localhost:60571")` para permitir peticiones desde el frontend
+
+---
+
 ## Ejecutar el proyecto
 
 ```bash
